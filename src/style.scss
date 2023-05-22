@@ -1,0 +1,99 @@
+.uncommon-journal-category-filter {
+  position: sticky;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--wp--preset--color--contrast);
+  color: var(--wp--preset--color--gallery-off-white);
+  overflow: hidden;
+  transform: translateY( calc( var(--filter-height) - var(--toggler-height) ) );
+  transition: transform 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  border-radius: 1rem 1rem 0 0;
+  
+  & .wp-block-categories {
+    margin: 0;
+  }
+}
+.uncommon-journal-category-filter.uncommon-journal-category-filter--active { 
+  transform: translateY( 0 );
+}
+
+.uncommon-journal-category-filter-toggler {
+  cursor: pointer;
+  text-align: center;
+  font-size: var(--wp--preset--font-size--body-xs);
+  padding: 1em .5em .5em .5em;
+  margin-bottom: 1em;
+  &:before {
+    content: '';
+    position: absolute;
+    top: .5em;
+    left: calc(50%);
+    height: 2px;
+    width: 5px;
+    background: var(--wp--preset--color--gallery-off-white);;
+    transform: skew(0deg, 26deg);
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: .5em;
+    right: calc(50%);
+    height: 2px;
+    width: 5px;
+    background: var(--wp--preset--color--gallery-off-white);;
+    transform: skew(0deg, -26deg);
+  }
+}
+.uncommon-journal-category-filter-title {
+  text-align: center;
+  font-size: 13.25vw;
+  margin: 0;
+  line-height: 1;
+}
+.uncommon-journal-category-filter-list {
+  padding-bottom: 1.5rem;
+
+  @media screen and (max-width: 599px) {
+    padding-top: 1.5rem;
+  }
+
+  & .wp-block-categories-list {
+    list-style: none;
+    display: flex;
+    font-size: var(--wp--preset--font-size--body-s);
+    gap: .5em;
+    padding: 0 var(--wp--preset--spacing--outer);
+  }
+
+  & a:where(:not(.wp-element-button)) {
+    color: var(--wp--preset--color--gallery-off-white);
+    text-decoration: none;
+    border: 1px solid var(--wp--preset--color--gallery-off-white);
+    border-radius: 2em;
+    padding: 0.5em 1em;
+    display: inline-block;
+    
+    &:focus {
+      text-decoration: none;
+    }
+  }
+  * .cat-item--active a:where(:not(.wp-element-button)) {
+    background: var(--wp--preset--color--gallery-off-white);
+    color: var(--wp--preset--color--contrast);
+  }
+}
+footer.wp-block-template-part {
+  position: relative;
+  z-index: 2;
+}
+.wp-block-post {
+  display: none;
+}
+.wp-block-post.filtered {
+  display: block;
+}
+.wp-block-post-date {
+  display: none;
+}
