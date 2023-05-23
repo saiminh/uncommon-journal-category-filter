@@ -12,14 +12,14 @@ function hideCategory(category) {
 }
 
 function appyFilters(){
-  document.querySelectorAll('.filtered').forEach((post) => {
-    post.classList.remove('filtered'); 
+  document.querySelectorAll('.showing').forEach((post) => {
+    post.classList.remove('showing'); 
   })
   activeFilters.forEach((filter) => {
     console.log(filter);
     document.querySelectorAll('.wp-block-post').forEach((post) => {
       if (post.classList.contains(filter)) {
-        post.classList.add('filtered');
+        post.classList.add('showing');
       } 
     })
   })
@@ -28,7 +28,9 @@ function appyFilters(){
 window.addEventListener('DOMContentLoaded', function() {
   const posts = document.querySelectorAll('.wp-block-post');
   posts.forEach((post) => {
-    post.classList.add('filtered');
+    post.style.opacity = 0;
+    post.classList.add('filtered-post', 'showing');
+    post.style = {};
   })
   const filter = document.querySelector('.uncommon-journal-category-filter');
   const toggler = document.querySelector('.uncommon-journal-category-filter-toggler');
@@ -50,13 +52,13 @@ window.addEventListener('DOMContentLoaded', function() {
       
       if ( activeFilters.length === 0 ) {
         posts.forEach((post) => {
-          post.classList.remove('filtered');
+          post.classList.remove('showing');
         })
         showCategory(category);
       }
       else if ( activeFilters.includes('category-' + category) && activeFilters.length === 1 ) {
         posts.forEach((post) => {
-          post.classList.add('filtered');
+          post.classList.add('showing');
           activeFilters = [];
         })
       }

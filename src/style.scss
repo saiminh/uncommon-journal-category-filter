@@ -88,12 +88,12 @@ footer.wp-block-template-part {
   position: relative;
   z-index: 2;
 }
-.wp-block-post {
+.wp-block-post.filtered-post {
   display: none;
 }
-.wp-block-post.filtered {
+.wp-block-post.filtered-post.showing {
   display: block;
 }
-.wp-block-post-date {
+.wp-block-post.filtered-post.wp-block-post-date {
   display: none;
 }
