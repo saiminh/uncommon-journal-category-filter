@@ -46,6 +46,14 @@
     transform: skew(0deg, -26deg);
   }
 }
+.uncommon-journal-category-filter.uncommon-journal-category-filter--active .uncommon-journal-category-filter-toggler { 
+  &:before {
+    transform: skew(0deg, -26deg);
+  }
+  &:after {
+    transform: skew(0deg, 26deg);
+  }
+}
 .uncommon-journal-category-filter-title {
   text-align: center;
   font-size: 13.25vw;
