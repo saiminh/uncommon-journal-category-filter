@@ -1,0 +1,28 @@
+.uncommon-journal-category-filter {
+
+  & .wp-block-categories-list {
+    list-style: none;
+    display: flex;
+    font-size: var(--wp--preset--font-size--body-s);
+    gap: .5em;
+    padding: 0 var(--wp--preset--spacing--outer);
+  }
+
+  & a:where(:not(.wp-element-button)) {
+    color: var(--wp--preset--color--gallery-off-white)!important;
+    text-decoration: none!important;
+    border: 1px solid var(--wp--preset--color--gallery-off-white);
+    border-radius: 2em;
+    padding: 0.5em 1em;
+    display: inline-block;
+    pointer-events: none!important;
+    
+    &:focus {
+      text-decoration: none;
+    }
+  }
+  & .cat-item--active a:where(:not(.wp-element-button)) {
+    background: var(--wp--preset--color--gallery-off-white);
+    color: var(--wp--preset--color--contrast);
+  } 
+}
